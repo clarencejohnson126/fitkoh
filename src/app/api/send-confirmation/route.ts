@@ -295,12 +295,16 @@ function buildConfirmationEmail({
             </td>
           </tr>
 
-          <!-- CTA BUTTON -->
+          <!-- CTA BUTTON (bulletproof table-based) -->
           <tr>
             <td style="padding:0 40px 32px;text-align:center;">
-              <a href="https://wa.me/66808848280" style="display:inline-block;background:#009966;color:#ffffff !important;font-size:15px;font-weight:700;text-decoration:none !important;padding:14px 40px;border-radius:50px;letter-spacing:0.5px;">
-                <span style="text-decoration:none !important;color:#ffffff !important;">💬 WhatsApp Us With Any Questions</span>
-              </a>
+              <table role="presentation" cellpadding="0" cellspacing="0" align="center">
+                <tr>
+                  <td style="background:#009966;border-radius:50px;padding:14px 40px;">
+                    <a href="https://wa.me/66808848280" target="_blank" style="color:#ffffff;font-size:15px;font-weight:700;text-decoration:none;display:block;">WhatsApp Us With Any Questions</a>
+                  </td>
+                </tr>
+              </table>
             </td>
           </tr>
 
@@ -311,11 +315,10 @@ function buildConfirmationEmail({
                 <span style="color:#fff;">FIT</span><span style="color:#009966;">KOH</span>
               </h3>
               <p style="margin:0 0 12px;font-size:11px;color:#777;letter-spacing:1px;">& LIONHEART SAMUI</p>
-              <p style="margin:0 0 4px;font-size:12px;color:#888;">📍 Ban Tai, Koh Samui, Thailand</p>
-              <p style="margin:0 0 4px;font-size:12px;color:#888;">📧 <span style="color:#888;">info@fitkoh.com</span> &nbsp;•&nbsp; 📞 <span style="color:#888;">+66 80 884 82 80</span></p>
-              <p style="margin:16px 0 0;font-size:11px;color:#555;">
-                <a href="https://fitkoh.com" style="color:#009966;text-decoration:none !important;"><span style="text-decoration:none !important;color:#009966;">fitkoh.com</span></a> &nbsp;•&nbsp;
-                <a href="https://lionheartsamui.com" style="color:#009966;text-decoration:none !important;"><span style="text-decoration:none !important;color:#009966;">lionheartsamui.com</span></a>
+              <p style="margin:0 0 4px;font-size:12px;color:#888;">Ban Tai, Koh Samui, Thailand</p>
+              <p style="margin:0 0 4px;font-size:12px;color:#888;">info@fitkoh.com &nbsp;|&nbsp; +66 80 884 82 80</p>
+              <p style="margin:16px 0 0;font-size:11px;color:#009966;">
+                fitkoh.com &nbsp;|&nbsp; lionheartsamui.com
               </p>
             </td>
           </tr>
@@ -388,7 +391,7 @@ export async function POST(request: Request) {
     });
 
     const { error: emailError } = await resend.emails.send({
-      from: "FitKoh Bookings <onboarding@resend.dev>",
+      from: "FitKoh Bookings <bookings@thinkbig.rebelz-ai.com>",
       to: customerEmail,
       subject: "You're Booked! Your FitKoh Adventure Starts Now 🌴🥊",
       html,
