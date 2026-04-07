@@ -188,59 +188,6 @@ export default function Testimonials() {
           ))}
         </motion.div>
 
-        {/* Before / After section */}
-        <motion.div
-          initial="hidden"
-          animate={inView ? "visible" : "hidden"}
-          variants={stagger}
-          className="mt-16"
-        >
-          <motion.h3
-            variants={fadeUp}
-            className="font-[var(--font-display)] text-2xl sm:text-3xl tracking-wide text-foreground text-center mb-8"
-          >
-            TRANSFORMATIONS
-          </motion.h3>
-
-          <motion.div
-            variants={stagger}
-            className="grid grid-cols-1 sm:grid-cols-3 gap-5"
-          >
-            {[1, 2, 3].map((i) => (
-              <motion.div
-                key={i}
-                variants={fadeUp}
-                className="relative h-56 sm:h-64 rounded-xl overflow-hidden border border-card-border bg-card-bg group"
-              >
-                {i === 1 ? (
-                  /* Real transformation image */
-                  <Image
-                    src="/images/transformation.jpg"
-                    alt="FitKoh transformation result"
-                    fill
-                    className="object-cover"
-                  />
-                ) : (
-                  /* Placeholder content for slots 2 & 3 */
-                  <div className="relative z-10 h-full flex flex-col items-center justify-center gap-3 px-6 text-center">
-                    <div className="w-12 h-12 rounded-full bg-card-border/40 flex items-center justify-center">
-                      <ImageIcon size={20} className="text-muted" />
-                    </div>
-                    <p className="text-sm text-muted">
-                      Transformation results coming soon
-                    </p>
-                    <span className="text-xs text-muted/50">
-                      Before &amp; After #{i}
-                    </span>
-                  </div>
-                )}
-
-                {/* Hover glow */}
-                <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-t from-green/5 to-transparent" />
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
       </div>
 
       {/* Bottom divider */}
